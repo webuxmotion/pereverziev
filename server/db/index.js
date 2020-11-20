@@ -3,14 +3,10 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 
 const config = require('../config');
+const { DB_CONNECT_PARAMS } = require('../constants');
 
 exports.connect = () => {
-  mongoose.connect(config.DB_URI, { 
-    useNewUrlParser: true, 
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
-  }, () => {
+  mongoose.connect(config.DB_URI, DB_CONNECT_PARAMS, () => {
     console.log('Connected to DB!');
   })
 }
