@@ -2,6 +2,7 @@ import { getDataFromTree } from '@apollo/react-ssr';
 
 import withApollo from '../hoc/withApollo';
 import { useGetDocs } from '../apollo/actions';
+import BaseLayout from '../layouts/BaseLayout';
 
 function About() {
   const { loading, error, data } = useGetDocs();
@@ -10,7 +11,7 @@ function About() {
   if (error) return <p>Error :(</p>;
 
   return (
-    <>
+    <BaseLayout>
       <div>
         {
           data.docs.map(({ title, content }) => (
@@ -22,7 +23,7 @@ function About() {
           ))
         }
       </div>
-    </>
+    </BaseLayout>
   );
 }
 
