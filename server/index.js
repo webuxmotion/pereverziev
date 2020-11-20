@@ -9,8 +9,10 @@ const db = require('./db');
 db.connect();
 
 app.prepare().then(() => {
-
   const server = express();
+  const apolloServer = require('./graphql').createApolloServer();
+
+  apolloServer.applyMiddleware({ app: server });
 
   server.all('*', (req, res) => {
     return handle(req, res)
