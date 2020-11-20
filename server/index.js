@@ -4,8 +4,12 @@ const dev = process.env.NODE_ENV !== 'production'
 const port = parseInt(process.env.PORT, 10) || 1991
 const app = next({ dev })
 const handle = app.getRequestHandler();
+const db = require('./db');
+
+db.connect();
 
 app.prepare().then(() => {
+
   const server = express();
 
   server.all('*', (req, res) => {
