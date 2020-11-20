@@ -1,21 +1,29 @@
+import { getDataFromTree } from '@apollo/react-ssr';
+
+import withApollo from '../hoc/withApollo';
+import { useGetDocs } from '../apollo/actions';
+
 function About() {
-  return <div>About</div>
+  const { loading, error, data } = useGetDocs();
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+
+  return (
+    <>
+      <div>
+        {
+          data.docs.map(({ title, content }) => (
+            <div key={title}>
+              <p>
+                {content}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </>
+  );
 }
 
-export async function getStaticProps(context) {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/postsa`)
-  const data = await res.json()
-
-  if (!data) {
-    return {
-      notFound: true,
-    }
-  }
-
-  return {
-    props: {}, // will be passed to the page component as props
-    revalidate: 1, // In seconds
-  }
-}
-
-export default About
+export default withApollo(About, { getDataFromTree })
