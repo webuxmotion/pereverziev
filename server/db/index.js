@@ -3,6 +3,7 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 
 require('./models/doc');
+require('./models/user');
 
 const config = require('../config');
 const { DB_CONNECT_PARAMS } = require('../constants');
