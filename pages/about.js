@@ -12,7 +12,8 @@ function About() {
 
   return (
     <BaseLayout>
-      <div>
+      <div className="page-wrapper">
+        <h1>About</h1>
         {
           data.docs.map(({ title, content }) => (
             <div key={title}>

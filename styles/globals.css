@@ -15,3 +15,12 @@ a {
 * {
   box-sizing: border-box;
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.page-wrapper {
+  padding-top: 100px;
+}
