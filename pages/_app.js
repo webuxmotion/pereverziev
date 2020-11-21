@@ -7,6 +7,7 @@ import '../components/shared/Footer/Footer.scss'
 import '../components/shared/Hero/Hero.scss'
 import '../components/shared/Logo/Logo.scss'
 import '../components/shared/Navbar/Navbar.scss'
+import '../components/shared/Spinner/Spinner.scss'
 
 function MyApp({ Component, pageProps }) {
   return <>
