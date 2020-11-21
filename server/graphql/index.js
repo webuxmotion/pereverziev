@@ -45,6 +45,7 @@ exports.createApolloServer = () => {
 
     type Query {
       docs: [Doc]
+      user: User
     }
 
     type Mutation {
@@ -57,6 +58,7 @@ exports.createApolloServer = () => {
     Query: {
       docs: () => docs,
       docs: (_, __, { models: { Doc }}) => Doc.getAll(),
+      user: (_, __, { models: { User }, ...ctx }) => User.getAuthUser(ctx),
     },
     Mutation: {
       signUp: (_, { input }, { models: { User }}) => {

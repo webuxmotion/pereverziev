@@ -1,6 +1,22 @@
+import { useEffect, useState } from 'react';
 import AppLink from '../AppLink';
+import { useLazyGetUser } from '../../../apollo/actions';
+import withApollo from '../../../hoc/withApollo';
 
 const Navbar = () => {
+  const [user, setUser] = useState(null);
+  const [hasResponse, setHasResponse] = useState(false);
+  const [getUser, { data, error, loading }] = useLazyGetUser();
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  if (data) {
+    if (data.user && !user) { setUser(data.user) }
+    if (!data.user && user) { setUser(null) }
+    if (!hasResponse) { setHasResponse(true) }
+  }
   
   return (
     <div className="navbar">
@@ -31,12 +47,27 @@ const Navbar = () => {
 
       <div className="navbar__column">
         <ul className="navbar__list">
-          <li className="navbar__list-item">
-            <AppLink href="/registration" className="navbar__link">registration</AppLink>
-          </li>
-          <li className="navbar__list-item">
-            <AppLink href="/login" className="navbar__link">login</AppLink>
-          </li>
+          { hasResponse &&
+            <>
+              { user &&
+                <>
+                  <li className="navbar__list-item">
+                    <AppLink href="/" className="navbar__link">Log Out</AppLink>
+                  </li>
+                </>
+              }
+              { (error || !user) &&
+                <>
+                  <li className="navbar__list-item">
+                    <AppLink href="/registration" className="navbar__link">registration</AppLink>
+                  </li>
+                  <li className="navbar__list-item">
+                    <AppLink href="/login" className="navbar__link">login</AppLink>
+                  </li>
+                </>
+              }
+            </>
+          }
         </ul>
       </div>
 
@@ -44,4 +75,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar;
+export default withApollo(Navbar);

@@ -22,3 +22,29 @@ export const SIGN_UP = gql`
     })
   }
 `;
+
+export const SIGN_IN = gql`
+  mutation SignIN(
+    $email: String!
+    $password: String!
+  ) {
+    signIn(input: {
+      email: $email
+      password: $password
+    }) {
+      _id
+      email
+      role
+    }
+  }
+`;
+
+export const GET_USER = gql`
+  query User {
+    user {
+      _id
+      email
+      role
+    }
+  }
+`;
