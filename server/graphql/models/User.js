@@ -19,6 +19,15 @@ class User {
       throw error;
     }
   }
+
+  async signIn(signInData, ctx) {
+    try {
+      const user = await ctx.authenticate(signInData);
+      return user;
+    } catch(error) {
+      return error;
+    }
+  }
 }
 
 module.exports = User;

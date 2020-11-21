@@ -1,6 +1,8 @@
 const { ApolloServer, gql } = require('apollo-server-express');
 const mongoose = require('mongoose');
 
+const { buildAuthContext } = require('./context');
+
 const Doc = require('./models/Doc');
 const User = require('./models/User');
 
@@ -25,9 +27,20 @@ exports.createApolloServer = () => {
       passwordConfirmation: String!
     }
 
+    input SignInInput {
+      email: String!
+      password: String!
+    }
+
     type Doc {
       title: String
       content: String
+    }
+
+    type User {
+      _id: ID
+      email: String
+      role: String
     }
 
     type Query {
@@ -36,6 +49,7 @@ exports.createApolloServer = () => {
 
     type Mutation {
       signUp(input: SignUpInput): String
+      signIn(input: SignInInput): User
     }
   `;
 
@@ -48,13 +62,17 @@ exports.createApolloServer = () => {
       signUp: (_, { input }, { models: { User }}) => {
         return User.signUp(input);
       },
+      signIn: (_, { input }, ctx) => {
+        return ctx.models.User.signIn(input, ctx);
+      },
     }
   };
 
   const apolloServer = new ApolloServer({ 
     typeDefs,
     resolvers,
-    context: () => ({
+    context: ({ req }) => ({
+      ...buildAuthContext(req),
       models: {
         Doc: new Doc(mongoose.model('Doc')),
         User: new User(mongoose.model('User')),
