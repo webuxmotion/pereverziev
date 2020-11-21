@@ -1,0 +1,14 @@
+.message {
+  padding: 20px;
+
+  &--type {
+
+    &--success {
+      background-color: #6fa776;
+    }
+
+    &--danger {
+      background-color: #a76f6f;
+    }
+  }
+}

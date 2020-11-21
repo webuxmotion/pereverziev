@@ -8,3 +8,17 @@ export const GET_DOCS = gql`
     }
   }
 `;
+
+export const SIGN_UP = gql`
+  mutation SignUp(
+    $email: String!
+    $password: String!
+    $passwordConfirmation: String!
+  ) {
+    signUp(input: {
+      email: $email
+      password: $password
+      passwordConfirmation: $passwordConfirmation
+    })
+  }
+`;

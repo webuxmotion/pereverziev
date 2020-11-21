@@ -8,6 +8,8 @@ import '../components/shared/Hero/Hero.scss'
 import '../components/shared/Logo/Logo.scss'
 import '../components/shared/Navbar/Navbar.scss'
 import '../components/shared/Spinner/Spinner.scss'
+import '../components/shared/Errors/Errors.scss'
+import '../components/shared/Message/Message.scss'
 
 function MyApp({ Component, pageProps }) {
   return <>
