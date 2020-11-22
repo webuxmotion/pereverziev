@@ -35,6 +35,28 @@ const data = {
       user: user2Id
     },
   ],
+  cards: [
+    {
+      title: 'Card title 1',
+      user: user1Id
+    },
+    {
+      title: 'Card title 2',
+      content: 'Card content 2',
+      user: user1Id
+    },
+    {
+      title: 'Card title 3',
+      link: 'Card link 3',
+      user: user2Id
+    },
+    {
+      title: 'Card title 4',
+      content: 'Card content 4',
+      link: 'Card link 4',
+      user: user2Id
+    },
+  ],
 }
 
 module.exports = data;

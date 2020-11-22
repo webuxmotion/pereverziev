@@ -5,6 +5,7 @@ const { buildAuthContext } = require('./context');
 
 const Doc = require('./models/Doc');
 const User = require('./models/User');
+const Card = require('./models/Card');
 
 exports.createApolloServer = () => {
 
@@ -37,6 +38,13 @@ exports.createApolloServer = () => {
       content: String
     }
 
+    type Card {
+      _id: ID
+      title: String
+      content: String
+      link: String
+    }
+
     type User {
       _id: ID
       email: String
@@ -46,6 +54,8 @@ exports.createApolloServer = () => {
     type Query {
       docs: [Doc]
       user: User
+      cards: [Card]
+      userCards: [Card]
     }
 
     type Mutation {
@@ -59,7 +69,9 @@ exports.createApolloServer = () => {
     Query: {
       docs: () => docs,
       docs: (_, __, { models: { Doc }}) => Doc.getAll(),
+      cards: (_, __, { models: { Card }}) => Card.getAll(),
       user: (_, __, { models: { User }, ...ctx }) => User.getAuthUser(ctx),
+      userCards: (_, __, { models: { Card }}) => Card.getAllByUser()
     },
     Mutation: {
       signUp: (_, { input }, { models: { User }}) => {
@@ -81,6 +93,7 @@ exports.createApolloServer = () => {
       ...buildAuthContext(req),
       models: {
         Doc: new Doc(mongoose.model('Doc')),
+        Card: new Card(mongoose.model('Card'), req.user),
         User: new User(mongoose.model('User')),
       }
     })

@@ -4,6 +4,7 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 
 require('./models/doc');
 require('./models/user');
+require('./models/card');
 
 const config = require('../config');
 const { DB_CONNECT_PARAMS } = require('../constants');

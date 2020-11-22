@@ -28,6 +28,9 @@ const Navbar = () => {
       <div className="navbar__column">
         <ul className="navbar__list">
           <li className="navbar__list-item">
+            <AppLink href="/cards" className="navbar__link">cards</AppLink>
+          </li>
+          <li className="navbar__list-item">
             <AppLink href="/about" className="navbar__link">about</AppLink>
           </li>
           <li className="navbar__list-item">

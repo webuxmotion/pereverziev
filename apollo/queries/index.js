@@ -9,6 +9,17 @@ export const GET_DOCS = gql`
   }
 `;
 
+export const GET_USER_CARDS = gql`
+  query UserCards {
+    userCards {
+      _id
+      title
+      content
+      link
+    }
+  }
+`;
+
 export const SIGN_UP = gql`
   mutation SignUp(
     $email: String!

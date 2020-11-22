@@ -2,6 +2,7 @@ import { useQuery, useLazyQuery, useMutation } from '@apollo/client';
 
 import { 
   GET_DOCS,
+  GET_USER_CARDS,
   SIGN_UP,
   SIGN_IN,
   SIGN_OUT,
@@ -9,6 +10,8 @@ import {
 } from '../queries';
 
 export const useGetDocs = () => useQuery(GET_DOCS);
+
+export const useGetUserCards = () => useQuery(GET_USER_CARDS);
 
 export const useSignUp = () => useMutation(SIGN_UP);
 
