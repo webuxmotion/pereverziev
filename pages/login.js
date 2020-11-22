@@ -18,7 +18,9 @@ const Login = () => {
       <div className="page-wrapper">
         <h1>Login</h1>
         { error && <Errors error={error} /> }
-        { message && <Message type={messages[message].type}>{messages[message].value}</Message> }
+        { (message && messages[message]) &&
+          <Message type={messages[message]?.type}>{messages[message]?.value}</Message> 
+        }
         <LoginForm 
           onSubmit={loginData => {
             signIn({ variables: loginData })

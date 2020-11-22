@@ -36,6 +36,16 @@ class User {
       return error;
     }
   }
+
+  signOut(ctx) {
+    try {
+      ctx.logout();
+
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
 }
 
 module.exports = User;

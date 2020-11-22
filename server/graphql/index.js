@@ -51,6 +51,7 @@ exports.createApolloServer = () => {
     type Mutation {
       signUp(input: SignUpInput): String
       signIn(input: SignInInput): User
+      signOut: Boolean
     }
   `;
 
@@ -67,6 +68,9 @@ exports.createApolloServer = () => {
       signIn: (_, { input }, ctx) => {
         return ctx.models.User.signIn(input, ctx);
       },
+      signOut: (_, __, { models: { User }, ...ctx }) => {
+        return User.signOut(ctx);
+      }
     }
   };
 

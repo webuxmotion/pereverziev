@@ -4,6 +4,7 @@ import {
   GET_DOCS,
   SIGN_UP,
   SIGN_IN,
+  SIGN_OUT,
   GET_USER,
 } from '../queries';
 
@@ -21,3 +22,7 @@ export const useSignIn = () => useMutation(SIGN_IN, {
 });
 
 export const useLazyGetUser = () => useLazyQuery(GET_USER);
+
+export const useGetUser = () => useQuery(GET_USER);
+
+export const useSignOut = () => useMutation(SIGN_OUT);

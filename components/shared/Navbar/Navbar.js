@@ -52,7 +52,7 @@ const Navbar = () => {
               { user &&
                 <>
                   <li className="navbar__list-item">
-                    <AppLink href="/" className="navbar__link">Log Out</AppLink>
+                    <AppLink href="/logout" className="navbar__link">Log Out</AppLink>
                   </li>
                 </>
               }
