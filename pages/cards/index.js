@@ -1,12 +1,13 @@
 import { getDataFromTree } from '@apollo/react-ssr';
-
 import withApollo from '../../hoc/withApollo';
-import { useGetUserCards } from '../../apollo/actions';
+import { useGetCards } from '../../apollo/actions';
 import BaseLayout from '../../layouts/BaseLayout';
 import Spinner from '../../components/shared/Spinner';
+import Secret from '../../components/shared/Secret';
+import Button from '../../components/shared/Button';
 
 function Cards() {
-  const { loading, error, data } = useGetUserCards();
+  const { loading, error, data } = useGetCards();
 
   if (error) return <p>Error :(</p>;
 
@@ -16,8 +17,11 @@ function Cards() {
       { !loading &&
         <div className="page-wrapper">
           <h1>Cards</h1>
+          <Secret roles={['admin']}>
+            <Button href="/cards/add">Add card</Button>
+          </Secret>
           {
-            data.userCards.map(({ _id, title, content, link }) => (
+            data.cards.map(({ _id, title, content, link }) => (
               <div key={_id}>
                 <p>
                   {title}

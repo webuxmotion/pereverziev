@@ -10,6 +10,7 @@ import '../components/shared/Navbar/Navbar.scss'
 import '../components/shared/Spinner/Spinner.scss'
 import '../components/shared/Errors/Errors.scss'
 import '../components/shared/Message/Message.scss'
+import '../components/shared/Button/Button.scss'
 
 function MyApp({ Component, pageProps }) {
   return <>

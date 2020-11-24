@@ -10,6 +10,13 @@ class Card {
     return this.Model.find({})
   }
 
+  create(data) {
+    this._checkAuth();
+    data.user = this.user;
+
+    return this.Model.create(data)
+  }
+
   getAllByUser() {
     this._checkAuth();
 

@@ -1,5 +1,24 @@
 import { gql } from '@apollo/client';
 
+export const CREATE_CARD = gql`
+  mutation CreateCard(
+    $title: String
+    $content: String
+    $link: String
+  ) {
+    createCard (input: {
+      title: $title
+      content: $content
+      link: $link
+    }) {
+      _id
+      title
+      content
+      link
+    }
+  }
+`;
+
 export const GET_DOCS = gql`
   query GetDocs {
     docs {
@@ -12,6 +31,17 @@ export const GET_DOCS = gql`
 export const GET_USER_CARDS = gql`
   query UserCards {
     userCards {
+      _id
+      title
+      content
+      link
+    }
+  }
+`;
+
+export const GET_CARDS = gql`
+  query Cards {
+    cards {
       _id
       title
       content

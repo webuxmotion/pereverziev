@@ -33,6 +33,12 @@ exports.createApolloServer = () => {
       password: String!
     }
 
+    input CardInput {
+      title: String
+      content: String
+      link: String
+    }
+
     type Doc {
       title: String
       content: String
@@ -59,6 +65,7 @@ exports.createApolloServer = () => {
     }
 
     type Mutation {
+      createCard(input: CardInput): Card
       signUp(input: SignUpInput): String
       signIn(input: SignInInput): User
       signOut: Boolean
@@ -71,7 +78,7 @@ exports.createApolloServer = () => {
       docs: (_, __, { models: { Doc }}) => Doc.getAll(),
       cards: (_, __, { models: { Card }}) => Card.getAll(),
       user: (_, __, { models: { User }, ...ctx }) => User.getAuthUser(ctx),
-      userCards: (_, __, { models: { Card }}) => Card.getAllByUser()
+      userCards: (_, __, { models: { Card }}) => Card.getAllByUser(),
     },
     Mutation: {
       signUp: (_, { input }, { models: { User }}) => {
@@ -82,7 +89,8 @@ exports.createApolloServer = () => {
       },
       signOut: (_, __, { models: { User }, ...ctx }) => {
         return User.signOut(ctx);
-      }
+      },
+      createCard: (_, { input }, { models: { Card }}) => Card.create(input),
     }
   };
 
