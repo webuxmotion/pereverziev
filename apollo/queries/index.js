@@ -50,6 +50,17 @@ export const GET_CARDS = gql`
   }
 `;
 
+export const GET_CARD = gql`
+  query Card($id: ID) {
+    card(id: $id) {
+      _id
+      title
+      content
+      link
+    }
+  }
+`;
+
 export const SIGN_UP = gql`
   mutation SignUp(
     $email: String!

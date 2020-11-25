@@ -5,6 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout';
 import Spinner from '../../components/shared/Spinner';
 import Secret from '../../components/shared/Secret';
 import Button from '../../components/shared/Button';
+import Card from '../../components/shared/Card';
 
 function Cards() {
   const { loading, error, data } = useGetCards();
@@ -16,24 +17,23 @@ function Cards() {
       { loading && <Spinner /> }
       { !loading &&
         <div className="page-wrapper">
-          <h1>Cards</h1>
-          <Secret roles={['admin']}>
-            <Button href="/cards/add">Add card</Button>
-          </Secret>
-          {
-            data.cards.map(({ _id, title, content, link }) => (
-              <div key={_id}>
-                <p>
-                  {title}
-                  {content}
-                  {link}
-                </p>
-              </div>
-            ))
-          }
+          <div className="cards-page__container">
+            <h1>Cards</h1>
+            <Secret roles={['admin']}>
+              <Button href="/cards/add">Add card</Button>
+            </Secret>
+            <div className="cards-page__list">
+              {
+                data.cards.map((card) => (
+                  <div key={card._id} className="cards-page__card-item">
+                    <Card card={card} />
+                  </div>
+                ))
+              }
+            </div>
+          </div>
         </div>
       }
-      
     </BaseLayout>
   );
 }

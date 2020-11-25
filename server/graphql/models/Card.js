@@ -23,6 +23,10 @@ class Card {
     return this.Model.find({ user: this.user._id}).sort({ startDate: 'desc' })
   }
 
+  getById(id) {
+    return this.Model.findById(id)
+  }
+
   _checkAuth() {
     if (!this.user || !this.writeRights.includes(this.user.role)) {
       throw new Error('Not Authorize');

@@ -4,6 +4,7 @@ import {
   GET_DOCS,
   GET_USER_CARDS,
   GET_CARDS,
+  GET_CARD,
   SIGN_UP,
   SIGN_IN,
   SIGN_OUT,
@@ -27,6 +28,7 @@ export const useGetDocs = () => useQuery(GET_DOCS);
 
 export const useGetUserCards = () => useQuery(GET_USER_CARDS);
 export const useGetCards = () => useQuery(GET_CARDS);
+export const useGetCard = (options) => useQuery(GET_CARD, options);
 
 export const useSignUp = () => useMutation(SIGN_UP);
 

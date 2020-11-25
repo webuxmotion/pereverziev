@@ -1,0 +1,17 @@
+.cards-page {
+
+  &__container {
+    padding: 20px;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -20px;
+  }
+
+  &__card-item {
+    padding: 20px;
+    width: 25%;
+  }
+}

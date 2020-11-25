@@ -61,6 +61,7 @@ exports.createApolloServer = () => {
       docs: [Doc]
       user: User
       cards: [Card]
+      card(id: ID): Card
       userCards: [Card]
     }
 
@@ -77,6 +78,7 @@ exports.createApolloServer = () => {
       docs: () => docs,
       docs: (_, __, { models: { Doc }}) => Doc.getAll(),
       cards: (_, __, { models: { Card }}) => Card.getAll(),
+      card: (_, { id }, { models: { Card }}) => Card.getById(id),
       user: (_, __, { models: { User }, ...ctx }) => User.getAuthUser(ctx),
       userCards: (_, __, { models: { Card }}) => Card.getAllByUser(),
     },
