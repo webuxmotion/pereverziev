@@ -67,11 +67,12 @@ exports.createApolloServer = () => {
     }
 
     type Mutation {
+      updateCard(id: ID, input: CardInput): Card
+      deleteCard(id: ID): Card
       createCard(input: CardInput): Card
       signUp(input: SignUpInput): String
       signIn(input: SignInInput): User
       signOut: Boolean
-      deleteCard(id: ID): Card
     }
   `;
 
@@ -94,6 +95,7 @@ exports.createApolloServer = () => {
       signOut: (_, __, { models: { User }, ...ctx }) => {
         return User.signOut(ctx);
       },
+      updateCard: (_, { id, input }, { models: { Card }}) => Card.update({ _id: id }, input, { new: true }),
       createCard: (_, { input }, { models: { Card }}) => Card.create(input),
       deleteCard: (_, { id }, { models: { Card } }) => Card.delete(id),
     }

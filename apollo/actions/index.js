@@ -5,12 +5,13 @@ import {
   GET_USER_CARDS,
   GET_CARDS,
   GET_CARD,
+  CREATE_CARD,
+  DELETE_CARD,
+  UPDATE_CARD,
   SIGN_UP,
   SIGN_IN,
   SIGN_OUT,
   GET_USER,
-  CREATE_CARD,
-  DELETE_CARD,
 } from '../queries';
 
 export const useCreateCard = () => useMutation(CREATE_CARD, {
@@ -24,6 +25,8 @@ export const useCreateCard = () => useMutation(CREATE_CARD, {
     });
   }
 });
+
+export const useUpdateCard = () => useMutation(UPDATE_CARD);
 
 export const useDeleteCard = () => useMutation(DELETE_CARD, {
   update(cache, { data: { deleteCard } }) {

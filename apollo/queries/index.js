@@ -19,6 +19,26 @@ export const CREATE_CARD = gql`
   }
 `;
 
+export const UPDATE_CARD = gql`
+  mutation UpdateCard(
+    $id: ID
+    $title: String
+    $content: String
+    $link: String
+  ) {
+    updateCard (id: $id, input: {
+      title: $title
+      content: $content
+      link: $link
+    }) {
+      _id
+      title
+      content
+      link
+    }
+  }
+`;
+
 export const GET_DOCS = gql`
   query GetDocs {
     docs {

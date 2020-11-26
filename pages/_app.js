@@ -1,3 +1,7 @@
+
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
 import Head from 'next/head'
 import '../styles/globals.css'
 
@@ -24,6 +28,7 @@ function MyApp({ Component, pageProps }) {
       <link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap" rel="stylesheet" />
     </Head>
     <Component {...pageProps} />
+    <ToastContainer />
   </>
 }
 

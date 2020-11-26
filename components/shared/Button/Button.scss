@@ -1,5 +1,4 @@
 .button {
-  background-color: transparent;
   border: none;
   font: 400 16px Arial;
   background-color: white;
@@ -10,6 +9,13 @@
   outline-style: none;
   cursor: pointer;
   position: relative;
+
+  &--theme {
+
+    &--danger {
+      background-color: #885555;
+    }
+  }
 
   &:hover {
     opacity: 0.9;

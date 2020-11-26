@@ -17,6 +17,14 @@ class Card {
     return this.Model.create(data)
   }
 
+  update(id, data) {
+    return this.Model.findOneAndUpdate(
+      { _id: id },
+      data,
+      { new: true, runValidators: true }
+    )
+  }
+
   async delete(id) {
     this._checkAuth();
 

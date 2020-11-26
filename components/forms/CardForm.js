@@ -2,8 +2,8 @@ import { useForm } from "react-hook-form";
 
 import Button from '../shared/Button';
 
-const CardForm = ({ onSubmit, loading }) => {
-  const { register, handleSubmit } = useForm();
+const CardForm = ({ onSubmit, loading, initialData = {} }) => {
+  const { register, handleSubmit } = useForm({ defaultValues: initialData });
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

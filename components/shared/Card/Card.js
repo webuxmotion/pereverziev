@@ -10,9 +10,10 @@ const Card = ({ card: { _id, title, content, link }, onHandleDeleteClick }) => {
       <a href={link} target="_blank" className="card__link">{link}</a>
       { onHandleDeleteClick && <>
         <hr/>
-        <Button onClick={() => onHandleDeleteClick(_id)}>Delete</Button>
+        <Button href={`/cards/${_id}/edit`}>Edit</Button>
+        <hr/>
+        <Button onClick={() => onHandleDeleteClick(_id)} theme="danger">Delete</Button>
       </> }
-      
     </div>
   )
 };
