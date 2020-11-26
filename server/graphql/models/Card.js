@@ -3,7 +3,7 @@ class Card {
   constructor(model, user) {
     this.Model = model;
     this.user = user;
-    this.writeRights = ['admin', 'guest'];
+    this.writeRights = ['admin', 'writer'];
   }
 
   getAll() {
@@ -15,6 +15,12 @@ class Card {
     data.user = this.user;
 
     return this.Model.create(data)
+  }
+
+  async delete(id) {
+    this._checkAuth();
+
+    return this.Model.findOneAndRemove({ _id: id });
   }
 
   getAllByUser() {

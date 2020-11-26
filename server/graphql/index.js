@@ -49,6 +49,7 @@ exports.createApolloServer = () => {
       title: String
       content: String
       link: String
+      user: User
     }
 
     type User {
@@ -70,6 +71,7 @@ exports.createApolloServer = () => {
       signUp(input: SignUpInput): String
       signIn(input: SignInInput): User
       signOut: Boolean
+      deleteCard(id: ID): Card
     }
   `;
 
@@ -93,6 +95,7 @@ exports.createApolloServer = () => {
         return User.signOut(ctx);
       },
       createCard: (_, { input }, { models: { Card }}) => Card.create(input),
+      deleteCard: (_, { id }, { models: { Card } }) => Card.delete(id),
     }
   };
 

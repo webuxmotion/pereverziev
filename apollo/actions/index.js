@@ -10,6 +10,7 @@ import {
   SIGN_OUT,
   GET_USER,
   CREATE_CARD,
+  DELETE_CARD,
 } from '../queries';
 
 export const useCreateCard = () => useMutation(CREATE_CARD, {
@@ -17,6 +18,18 @@ export const useCreateCard = () => useMutation(CREATE_CARD, {
     const { cards } = cache.readQuery({ query: GET_CARDS });
     const newCards = [...cards, createCard];
 
+    cache.writeQuery({
+      query: GET_CARDS,
+      data: { cards: newCards }
+    });
+  }
+});
+
+export const useDeleteCard = () => useMutation(DELETE_CARD, {
+  update(cache, { data: { deleteCard } }) {
+    const { cards } = cache.readQuery({ query: GET_CARDS });
+    const newCards = cards.filter(el => el._id !== deleteCard._id);
+    
     cache.writeQuery({
       query: GET_CARDS,
       data: { cards: newCards }

@@ -29,6 +29,6 @@ const AddCard = withAuth(() => {
       </div>
     </BaseLayout>
   )
-}, ['admin']);
+}, ['admin', 'writer']);
 
 export default withApollo(AddCard);

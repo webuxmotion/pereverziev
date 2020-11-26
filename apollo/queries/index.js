@@ -46,6 +46,9 @@ export const GET_CARDS = gql`
       title
       content
       link
+      user {
+        _id
+      }
     }
   }
 `;
@@ -57,6 +60,14 @@ export const GET_CARD = gql`
       title
       content
       link
+    }
+  }
+`;
+
+export const DELETE_CARD = gql`
+  mutation DeleteCard($id: ID) {
+    deleteCard(id: $id) {
+      _id
     }
   }
 `;
