@@ -6,7 +6,7 @@ const Cv = () =>
       <iframe 
         style={{
           width: '100%',
-          height: '800px',
+          height: '80vh',
           marginBottom: '100px'
         }}
         src="/cv.pdf"
