@@ -1,4 +1,4 @@
-import Button from '../Button';
+import { Button, AppLink } from '../index';
 
 const Hero = () => (
   <div className="hero">
@@ -13,28 +13,32 @@ const Hero = () => (
       </div>
       <div className="hero__cards">
         <div className="hero__card-wrapper">
-          <div 
+          <AppLink 
+            href="/projects/lalajs"
             className="hero__card"
             style={{ backgroundImage: "url('/proj-1.png')"}}
-          ></div>
+          ></AppLink>
         </div>
         <div className="hero__card-wrapper">
-          <div 
+          <AppLink 
+            href="/projects/mdmfd"
             className="hero__card"
             style={{ backgroundImage: "url('/proj-2.png')"}}
-          ></div>
+          ></AppLink>
         </div>
         <div className="hero__card-wrapper">
-          <div 
+          <AppLink 
+            href="/projects/a4docs"
             className="hero__card"
             style={{ backgroundImage: "url('/proj-3.png')"}}
-          ></div>
+          ></AppLink>
         </div>
         <div className="hero__card-wrapper">
-          <div 
+          <AppLink
+            href="/projects/pdfkitcv"
             className="hero__card"
             style={{ backgroundImage: "url('/proj-4.png')"}}
-          ></div>
+          ></AppLink>
         </div>
       </div>
     </div>

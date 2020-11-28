@@ -1,6 +1,6 @@
 .navbar {
   position: absolute;
-  top: 0;
+  top: 20px;
   right: 0;
   left: 0;
   padding: 0 40px;
@@ -8,13 +8,29 @@
   align-items: center;
   justify-content: space-between;
 
+  &__logo {
+    margin-top: 5px;
+  }
+
+  &__column {
+
+    &--menu {
+      position: absolute;
+      text-align: center;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 0;
+    }
+  }
+
   &__link {
     color: white;
     text-transform: uppercase;
   }
 
   &__list {
-    display: flex;
+    display: inline-flex;
   }
 
   &__list-item {

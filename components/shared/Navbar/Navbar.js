@@ -22,14 +22,11 @@ const Navbar = () => {
     <div className="navbar">
 
       <div className="navbar__column">
-        <AppLink href="/" className="logo">pereverziev</AppLink>
+        <AppLink href="/" className="logo navbar__logo">pereverziev</AppLink>
       </div>
       
-      <div className="navbar__column">
+      <div className="navbar__column navbar__column--menu">
         <ul className="navbar__list">
-          <li className="navbar__list-item">
-            <AppLink href="/cards" className="navbar__link">cards</AppLink>
-          </li>
           <li className="navbar__list-item">
             <AppLink href="/about" className="navbar__link">about</AppLink>
           </li>
@@ -38,9 +35,6 @@ const Navbar = () => {
           </li>
           <li className="navbar__list-item">
             <AppLink href="/projects" className="navbar__link">projects</AppLink>
-          </li>
-          <li className="navbar__list-item">
-            <AppLink href="/games" className="navbar__link">games</AppLink>
           </li>
           <li className="navbar__list-item">
             <AppLink href="/contacts" className="navbar__link">contacts</AppLink>

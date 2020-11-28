@@ -1,10 +1,15 @@
 import BaseLayout from '../layouts/BaseLayout';
 
+import { Title } from '../components/shared';
+
 const Contacts = () => {
   return (
     <BaseLayout>
-      <div className="page-wrapper">
-        <h1>Contacts</h1>
+      <div className="g-top-section">
+        <Title>Contacts</Title>
+        <div className="g-content">
+          <p>Find me on telegram - <b>@webuxmotion</b></p>
+        </div>
       </div>
     </BaseLayout>
   )

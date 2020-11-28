@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import Head from 'next/head'
 import '../styles/globals.css'
 
-import '../styles/BaseLayout.scss'
+import '../styles/global.scss'
 
 import '../pages/cards/CardsPage.scss'
 
@@ -18,6 +18,7 @@ import '../components/shared/Errors/Errors.scss'
 import '../components/shared/Message/Message.scss'
 import '../components/shared/Button/Button.scss'
 import '../components/shared/Card/Card.scss'
+import '../components/shared/Title/Title.scss'
 
 function MyApp({ Component, pageProps }) {
   return <>
