@@ -7,6 +7,10 @@
   align-items: center;
   background-color: #2c3e50;
 
+  canvas {
+    position: absolute;
+  }
+
   &__info {
     display: flex;
     flex-direction: column;

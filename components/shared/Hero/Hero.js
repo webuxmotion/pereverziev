@@ -1,7 +1,14 @@
+import dynamic from 'next/dynamic';
+
+const DynamicComponent = dynamic(() => import('./Stage'), {
+  ssr: false
+})
+
 import { Button, AppLink } from '../index';
 
 const Hero = () => (
   <div className="hero">
+    <DynamicComponent />
     <img src='/projects.svg' className="hero__bg-image" alt='projects background' />
     <div className="hero__container">
       <div className="hero__info">
