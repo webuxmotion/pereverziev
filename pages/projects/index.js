@@ -1,6 +1,6 @@
 import BaseLayout from '../../layouts/BaseLayout';
 import { ProjectCard, Title } from '../../components/shared';
-import projects from './projectsData';
+import projects from '../../constants/projects';
 
 const Projects = () => {
   return (

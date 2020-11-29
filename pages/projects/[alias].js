@@ -1,7 +1,7 @@
 import BaseLayout from '../../layouts/BaseLayout';
 
 import { Title, OneProject } from '../../components/shared';
-import projects from './projectsData';
+import projects from '../../constants/projects';
 
 function ProjectPage({ item }) {
   

@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 
 import { Button, AppLink } from '../index';
-import projects from '../../../pages/projects/projectsData';
+import projects from '../../../constants/projects';
 
 const DynamicComponent = dynamic(() => import('./Stage'), {
   ssr: false

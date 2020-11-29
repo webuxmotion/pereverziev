@@ -1,7 +1,7 @@
 import withApollo from 'next-with-apollo';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { ApolloProvider } from '@apollo/client';
-
+console.log(process.env.BASE_URL);
 export default withApollo(
   ({ initialState, headers }) => {
     return new ApolloClient({
@@ -13,7 +13,7 @@ export default withApollo(
           headers
         })
       },
-      uri: 'http://localhost:1991/graphql',
+      uri: process.env.BASE_URL,
       cache: new InMemoryCache().restore(initialState || {}),
     });
   },
