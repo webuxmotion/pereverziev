@@ -19,6 +19,8 @@ import '../components/shared/Message/Message.scss'
 import '../components/shared/Button/Button.scss'
 import '../components/shared/Card/Card.scss'
 import '../components/shared/Title/Title.scss'
+import '../components/shared/FormGroup/FormGroup.scss'
+import '../components/shared/FormCard/FormCard.scss'
 
 function MyApp({ Component, pageProps }) {
   return <>

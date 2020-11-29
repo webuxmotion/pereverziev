@@ -8,6 +8,7 @@ import Message from '../components/shared/Message';
 import LoginForm from '../components/forms/LoginForm';
 import Errors from '../components/shared/Errors';
 import Redirect from '../components/shared/Redirect';
+import { FormCard } from '../components/shared';
 
 const Login = () => {
   const [signIn, { data, error, loading }] = useSignIn();
@@ -15,18 +16,25 @@ const Login = () => {
 
   return (
     <BaseLayout>
-      <div className="page-wrapper">
-        <h1>Login</h1>
-        { error && <Errors error={error} /> }
-        { (message && messages[message]) &&
-          <Message type={messages[message]?.type}>{messages[message]?.value}</Message> 
-        }
-        <LoginForm 
-          onSubmit={loginData => {
-            signIn({ variables: loginData })
-          }}
-          loading={loading}
-        />
+      <div className="g-top-section">
+        <FormCard title="Login">
+          { (error || message && messages[message]) && (
+            <div className="g-pb-2">
+              { error && <Errors error={error} /> }
+              { (message && messages[message]) &&
+                <Message type={messages[message]?.type}>{messages[message]?.value}</Message> 
+              }
+            </div>
+          )}
+          
+          <LoginForm
+            onSubmit={loginData => {
+              signIn({ variables: loginData })
+            }}
+            loading={loading}
+          />
+        </FormCard>
+
         { data && data.signIn && <Redirect to="/" /> }
       </div>
     </BaseLayout>

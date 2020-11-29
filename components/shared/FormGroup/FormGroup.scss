@@ -1,0 +1,26 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    color: white;
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+
+  &__input {
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: none;
+    box-shadow: 0 2px 0 -1px rgba(256, 256, 256, 0.5);
+    color: white;
+    font-size: 16px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 2px 0 -1px rgba(256, 256, 256, 1);
+    }
+  }
+}

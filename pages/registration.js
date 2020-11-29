@@ -5,24 +5,27 @@ import BaseLayout from '../layouts/BaseLayout';
 import RegisterForm from '../components/forms/RegisterForm';
 import Errors from '../components/shared/Errors';
 import Redirect from '../components/shared/Redirect';
+import { FormCard } from '../components/shared';
 
 const Registration = () => {
   const [signUp, { data, error, loading }] = useSignUp();
 
   return (
     <BaseLayout>
-      <div className="page-wrapper">
-        <h1>Registration</h1>
-        { error && <Errors error={error} /> }
-        <RegisterForm onSubmit={registerData => {
-          signUp({ variables: registerData })
-        }} />
-        { data && data.signUp &&
-          <Redirect
-            to="/login"
-            query={{ message: 'LOGGED_IN' }}
-          />
-        }
+      <div className="g-top-section">
+        <FormCard title="Registration">
+          { error && (
+            <div className="g-pb-2">
+              { error && <Errors error={error} /> }
+            </div>
+          )}
+          
+          <RegisterForm onSubmit={registerData => {
+            signUp({ variables: registerData })
+          }} />
+        </FormCard>
+
+        { data && data.signUp && <Redirect to="/login" query={{ message: 'LOGGED_IN' }} /> }
       </div>
     </BaseLayout>
   )

@@ -1,0 +1,15 @@
+.form-card {
+
+  &__container {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  &__messages {
+    padding-bottom: 20px;
+  }
+
+  &__form {
+    padding-top: 10px;
+  }
+}
