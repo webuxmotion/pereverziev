@@ -21,6 +21,8 @@ import '../components/shared/Card/Card.scss'
 import '../components/shared/Title/Title.scss'
 import '../components/shared/FormGroup/FormGroup.scss'
 import '../components/shared/FormCard/FormCard.scss'
+import '../components/shared/ProjectCard/ProjectCard.scss'
+import '../components/shared/OneProject/OneProject.scss'
 
 function MyApp({ Component, pageProps }) {
   return <>

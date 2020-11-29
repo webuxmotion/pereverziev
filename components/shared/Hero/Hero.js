@@ -1,10 +1,11 @@
 import dynamic from 'next/dynamic';
 
+import { Button, AppLink } from '../index';
+import projects from '../../../pages/projects/projectsData';
+
 const DynamicComponent = dynamic(() => import('./Stage'), {
   ssr: false
-})
-
-import { Button, AppLink } from '../index';
+});
 
 const Hero = () => (
   <div className="hero">
@@ -19,34 +20,15 @@ const Hero = () => (
         </div>
       </div>
       <div className="hero__cards">
-        <div className="hero__card-wrapper">
-          <AppLink 
-            href="/projects/lalajs"
-            className="hero__card"
-            style={{ backgroundImage: "url('/proj-1.png')"}}
-          ></AppLink>
-        </div>
-        <div className="hero__card-wrapper">
-          <AppLink 
-            href="/projects/mdmfd"
-            className="hero__card"
-            style={{ backgroundImage: "url('/proj-2.png')"}}
-          ></AppLink>
-        </div>
-        <div className="hero__card-wrapper">
-          <AppLink 
-            href="/projects/a4docs"
-            className="hero__card"
-            style={{ backgroundImage: "url('/proj-3.png')"}}
-          ></AppLink>
-        </div>
-        <div className="hero__card-wrapper">
-          <AppLink
-            href="/projects/pdfkitcv"
-            className="hero__card"
-            style={{ backgroundImage: "url('/proj-4.png')"}}
-          ></AppLink>
-        </div>
+        { projects.slice(0, 4).map(item => (
+          <div key={item.imageName} className="hero__card-wrapper">
+            <AppLink 
+              href={`/projects/${item.imageName}`}
+              className="hero__card"
+              style={{ backgroundImage: `url('/${item.imageName}.png')`}}
+            ></AppLink>
+          </div>
+        ))}
       </div>
     </div>
   </div>

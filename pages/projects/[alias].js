@@ -1,29 +1,28 @@
 import BaseLayout from '../../layouts/BaseLayout';
 
-import { Title } from '../../components/shared';
+import { Title, OneProject } from '../../components/shared';
+import projects from './projectsData';
 
-function OneProject({ alias }) {
+function ProjectPage({ item }) {
+  
   return <BaseLayout>
     <div className="g-top-section">
-      <Title>Project - {alias}</Title>
+      <OneProject item={item} />
     </div>
   </BaseLayout>
 }
 
 export async function getStaticPaths() {
   return {
-    paths: [
-      '/projects/a4docs',
-      '/projects/pdfkitcv',
-      '/projects/lalajs',
-      '/projects/mdmfd',
-    ],
+    paths: projects.map(item => `/projects/${item.imageName}`),
     fallback: false
   }
 }
 
 export async function getStaticProps(context) {
-  return { props: { alias: context.params.alias } }
+  const item = projects.find(item => item.imageName === context.params.alias);
+
+  return { props: { item } }
 }
 
-export default OneProject
+export default ProjectPage
