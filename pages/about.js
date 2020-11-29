@@ -15,7 +15,7 @@ function About() {
           <p>You can find me on github - <a href="https://github.com/webuxmotion">webuxmotion</a></p>
           <p>State management technologies: Redux + Reselect + Saga, Context API, Mobx.</p>
           <p>My hobby - Javascript Animations</p>
-          <video width="320" height="240" autoPlay muted infinite loop>
+          <video width="320" height="240" autoPlay muted infinite="true" loop>
             <source src="gallery.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
