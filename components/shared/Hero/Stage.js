@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Stage, ParticleContainer, Sprite } from '@inlet/react-pixi'
 import Batch from './Batch'
 
@@ -56,12 +56,19 @@ const Maggot = props => (
 )
 
 
-export default () => {
+const HeroStage = () => {
+  const [classes, setClasses] = useState('hero__canvas hero__canvas--opacity');
+
+  useEffect(() => {
+    setClasses('hero__canvas')
+  }, []);
+
   return (
     <Stage 
       width={window.innerWidth}
       height={window.innerHeight}
       options={{ autoDensity: true, backgroundColor: 0x2c3e50 }}
+      className={classes}
     >
       <Settings>
         {config => (
@@ -73,3 +80,5 @@ export default () => {
     </Stage>
   )
 }
+
+export default HeroStage;
