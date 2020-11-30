@@ -1,5 +1,4 @@
-import AppLink from '../AppLink';
-import Button from '../Button';
+import { AppLink, Button } from '../index';
 
 const Card = ({ card: { _id, title, content, link }, onHandleDeleteClick }) => {
 

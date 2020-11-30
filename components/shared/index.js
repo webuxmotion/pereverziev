@@ -1,6 +1,5 @@
 import Button from './Button/Button';
 import Title from './Title/Title';
-import AppLink from './AppLink';
 import FormGroup from './FormGroup/FormGroup';
 import FormCard from './FormCard/FormCard';
 import ProjectCard from './ProjectCard/ProjectCard';
@@ -10,7 +9,11 @@ import Message from './Message/Message';
 import Footer from './Footer/Footer';
 import Errors from './Errors/Errors';
 import Hero from './Hero/Hero';
+import Card from './Card/Card';
+import Spinner from './Spinner/Spinner';
 import Redirect from './Redirect';
+import Secret from './Secret';
+import AppLink from './AppLink';
 
 export {
   Button,
@@ -26,4 +29,7 @@ export {
   Errors,
   Redirect,
   Hero,
+  Card,
+  Secret,
+  Spinner,
 };
