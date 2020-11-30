@@ -1,5 +1,5 @@
 import BaseLayout from '../layouts/BaseLayout';
-import Hero from '../components/shared/Hero';
+import { Hero } from '../components/shared';
 
 const Home = () => {
   return (

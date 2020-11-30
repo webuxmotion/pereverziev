@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 
-import Button from '../shared/Button';
+import { Button } from '../shared';
 
 const CardForm = ({ onSubmit, loading, initialData = {} }) => {
   const { register, handleSubmit } = useForm({ defaultValues: initialData });

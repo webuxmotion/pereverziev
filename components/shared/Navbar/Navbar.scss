@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 20;
+  z-index: 2000;
 
   &__logo {
     margin-top: 5px;
@@ -36,5 +36,102 @@
 
   &__list-item {
     margin: 0 10px;
+  }
+
+  &__burger {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+    div {
+      width: 100%;
+      height: 2px;
+      background-color: white;
+    }
+  }
+
+  &__close {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 20px;
+    position: relative;
+
+    div {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      transform-origin: center;
+
+      &:first-child {
+        transform: rotate(45deg);
+      }
+
+      &:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  &__mobile-menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    background-color:#465b6f;
+    transform: translateX(-300px);
+    transition: 0.3s;
+    overflow: hidden;
+
+    &--is-active {
+      transform: translateX(0);
+    }
+  }
+
+  @include fronzy(mdleft) {
+    padding: 0 20px;
+
+    &__column {
+      
+      &--menu, &--register-login {
+        display: none;
+      }
+    }
+
+    &__list {
+      flex-direction: column;
+    }
+
+    &__list-item {
+      margin: 0;
+    }
+
+    &__link {
+      padding: 20px;
+      display: flex;
+      border-bottom: 1px solid rgb(255 255 255 / 11%);
+    }
+  }
+
+  @include fronzy(lg) {
+
+    &__burger {
+      display: none;
+    }
+
+    &__mobile-menu {
+      display: none;
+    }
   }
 }

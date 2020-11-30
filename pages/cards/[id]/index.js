@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import withApollo from '../../../hoc/withApollo';
 import { useGetCard } from '../../../apollo/actions';
 import BaseLayout from '../../../layouts/BaseLayout';
-import Spinner from '../../../components/shared/Spinner';
+import { Spinner } from '../../../components/shared';
 
 function OneCard() {
   const router = useRouter();

@@ -10,16 +10,12 @@
   &__canvas {
     transition: 1s;
     opacity: 1;
-    
+    position: fixed;
 
     &--opacity {
       transition: 1s;
       opacity: 0;
     }
-  }
-
-  canvas {
-    position: absolute;
   }
 
   &__info {
@@ -83,5 +79,18 @@
     max-width: 420px;
     justify-content: flex-end;
     margin: -20px 0;
+  }
+
+  @include fronzy(mdleft) {
+    padding: 0 20px;
+
+    &__container {
+      flex-direction: column;
+      padding-top: 100px;
+    }
+
+    &__cards {
+      justify-content: flex-start;
+    }
   }
 }

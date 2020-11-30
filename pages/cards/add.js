@@ -6,7 +6,7 @@ import { useCreateCard } from '../../apollo/actions';
 
 import BaseLayout from '../../layouts/BaseLayout';
 import CardForm from '../../components/forms/CardForm';
-import Errors from '../../components/shared/Errors';
+import { Errors } from '../../components/shared';
 
 const AddCard = withAuth(() => {
   const [createCard, { error }] = useCreateCard();

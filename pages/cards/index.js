@@ -4,10 +4,7 @@ import { getDataFromTree } from '@apollo/react-ssr';
 import withApollo from '../../hoc/withApollo';
 import { useGetCards, useDeleteCard, useLazyGetUser } from '../../apollo/actions';
 import BaseLayout from '../../layouts/BaseLayout';
-import Spinner from '../../components/shared/Spinner';
-import Secret from '../../components/shared/Secret';
-import Button from '../../components/shared/Button';
-import Card from '../../components/shared/Card';
+import { Spinner, Secret, Button, Card } from '../../components/shared';
 
 function Cards() {
   const { loading, error, data } = useGetCards();

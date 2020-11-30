@@ -37,4 +37,12 @@
     color: white;
     text-decoration: underline;
   }
+
+  @include fronzy(mdleft) {
+
+    &__image {
+      width: 140px;
+      height: 140px;
+    }
+  }
 }

@@ -5,4 +5,10 @@
   right: 0;
   text-align: center;
   color: white;
+
+  @include fronzy(mdleft) {
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+  }
 }
