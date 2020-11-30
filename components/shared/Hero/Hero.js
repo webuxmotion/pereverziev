@@ -9,7 +9,7 @@ const DynamicComponent = dynamic(() => import('./Stage'), {
 
 const Hero = () => (
   <div className="hero">
-    <DynamicComponent />
+    {/* <DynamicComponent /> */}
     <img src='/projects.svg' className="hero__bg-image" alt='projects background' />
     <div className="hero__container">
       <div className="hero__info">
