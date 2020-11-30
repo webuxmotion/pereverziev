@@ -22,6 +22,12 @@ const projects = [
     'description': 'Create PDF cv using Javascript',
     'extendedDescription': '',
     'url': 'https://pdfkitcv.a4docs.com'
+  },
+  {
+    'imageName': 'sneakers',
+    'description': 'Sneakers Shop Lesson Demo',
+    'extendedDescription': 'Repo: https://github.com/webuxmotion/sneakers-shop-redux-lesson',
+    'url': 'https://sneakers-shop-lesson.herokuapp.com/'
   }
 ];
 
