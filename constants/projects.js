@@ -28,6 +28,12 @@ const projects = [
     'description': 'Sneakers Shop Lesson Demo',
     'extendedDescription': 'Repo: https://github.com/webuxmotion/sneakers-shop-redux-lesson',
     'url': 'https://sneakers-shop-lesson.herokuapp.com/'
+  },
+  {
+    'imageName': 'geomshop',
+    'description': 'Online Shop with geometric figures',
+    'extendedDescription': 'Repo: https://github.com/webuxmotion/geomshop',
+    'url': 'https://geomshop.pereverziev.com/'
   }
 ];
 
